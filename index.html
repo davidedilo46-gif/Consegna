@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Invio Foto Consegna</title>
+    <style>
+        body { font-family: sans-serif; padding: 20px; text-align: center; background: #f4f4f9; }
+        .card { background: white; padding: 25px; border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
+        h2 { color: #075e54; margin-bottom: 20px; }
+        .input-group { display: flex; justify-content: center; align-items: center; font-size: 24px; font-weight: bold; margin-bottom: 20px; }
+        input { font-size: 22px; padding: 10px; width: 180px; margin-left: 8px; border: 2px solid #ccc; border-radius: 8px; text-align: center; }
+        button { background: #25d366; color: white; border: none; padding: 15px 30px; font-size: 20px; font-weight: bold; border-radius: 8px; cursor: pointer; width: 100%; }
+        button:active { background: #128c7e; }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h2>🚚 Consegna GLS</h2>
+        <div class="input-group">
+            <span>+39</span>
+            <input type="tel" id="phone" placeholder="3331234567" autofocus>
+        </div>
+        <button onclick="apriWhatsApp()">Apri WhatsApp</button>
+    </div>
+
+    <script>
+        function apriWhatsApp() {
+            var num = document.getElementById('phone').value.trim();
+            if(!num) { alert('Inserisci il numero!'); return; }
+            var testo = encodeURIComponent("Buongiorno! Le confermo che il suo pacco è stato consegnato. Le allego la foto di conferma.");
+            window.location.href = "https://wa.me/39" + num + "?text=" + testo;
+        }
+    </script>
+</body>
+</html>
